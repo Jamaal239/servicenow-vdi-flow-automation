@@ -17,7 +17,7 @@ The automation must meet the following operational business logic requirements:
 ### Step 1: Core Flow Properties Definition
 Configure the baseline container properties for the automated engine. The flow is built in the **Global** application scope and set to run as the **System User** to prevent processing timeout failures or permission errors across restricted corporate data tables.
 
-![01 Flow Properties](images/01_Flow_Properties.png)
+<img width="1920" height="945" alt="01_Flow_Properties" src="https://github.com/user-attachments/assets/300508fa-8b6a-4187-84d3-e617492d9108" />
 *Figure 1: Initializing flow properties globally within the ServiceNow engine, setting execution permissions to run as System User.*
 
 * **Application Scope:** Global
@@ -29,7 +29,7 @@ Configure the baseline container properties for the automated engine. The flow i
 ### Step 2: Initializing the Flow Workspace Canvas
 Set up an empty, clean development staging canvas environment within Workflow Studio to map out sequential execution nodes sequentially.
 
-![02 Blank Flow Canvas](images/02_Blank_Flow_Canvas.png)
+<img width="1920" height="944" alt="02_Blank_Flow_Canvas" src="https://github.com/user-attachments/assets/aa1444bc-e543-48a5-92c9-d1763b5f6c0d" />
 *Figure 2: The initialized development canvas layout, creating a clean visual workspace for compiling sequential actions.*
 
 * **Verification Point:** Verify that the core workspace canvas is properly generated with no broken dependencies or orphaned blocks.
@@ -39,7 +39,7 @@ Set up an empty, clean development staging canvas environment within Workflow St
 ### Step 3: Service Catalog Core Trigger Configuration
 Establish the structural entry criteria for the flow. The automation uses an event-driven model that monitors the Service Catalog table, launching the execution engine instantly when a user submits a portal form.
 
-![03 Flow Trigger](images/03_Flow_Trigger.png)
+<img width="1920" height="942" alt="03_Flow_Trigger" src="https://github.com/user-attachments/assets/1be5bff8-c6fa-4ba7-856f-159ae7bd5610" />
 *Figure 3: Mapping the foundational event trigger configuration to automatically evaluate incoming Service Catalog submissions.*
 
 * **Trigger Type:** Service Catalog
@@ -50,7 +50,7 @@ Establish the structural entry criteria for the flow. The automation uses an eve
 ### Step 4: Contextual Form Variable Extraction
 Query the submitted transactional payload using the `Get Catalog Variables` action to extract the flat questionnaire variables and transform them into reusable data pills for downstream flow logic.
 
-![04 Get Catalog Variables](images/04_Get_Catalog_Variables.png)
+<img width="1920" height="946" alt="04_Get_Catalog_Variables" src="https://github.com/user-attachments/assets/5736704e-3e64-4b74-ad9d-5c074aff0c3d" />
 *Figure 4: Binding backend variables to pull context dynamically out of the 'Request Virtual Desktop (VDI) Access' catalog item.*
 
 * **Action Name:** Get Catalog Variables
@@ -63,7 +63,7 @@ Query the submitted transactional payload using the `Get Catalog Variables` acti
 ### Step 5: Conditional Branching Logic Implementation
 Implement an `If` evaluation logic node to inspect the extracted data pills and dynamically check for high-risk access level configurations.
 
-![05 If Admin Condition](images/05_If_Admin_Condition.png)
+<img width="1920" height="942" alt="05_If_Admin_Condition" src="https://github.com/user-attachments/assets/ba8595e8-750c-41ac-8732-4881eeeed4f1" />
 *Figure 5: Building conditional criteria to flag high-risk entries where the access level variable strictly evaluates to Administrator Access.*
 
 * **Condition Title:** Check if Admin Access
@@ -75,7 +75,7 @@ Implement an `If` evaluation logic node to inspect the extracted data pills and 
 ### Step 6: Human-in-the-Loop Security Approval Routing
 Create an asynchronous `Ask For Approval` step within the conditional `If` sub-branch to stall provisioning and verify manager authorization for elevated user roles.
 
-![06 Ask For Approval](images/06_Ask_For_Approval.png)
+<img width="1920" height="950" alt="06_Ask_For_Approval" src="https://github.com/user-attachments/assets/f6a7b815-989e-4d83-8e12-4788c39ca096" />
 *Figure 6: Routing approval requirements to the System Administrator with the rules criteria requiring an 'Anyone approves' logic gate.*
 
 * **Action Name:** Ask For Approval
@@ -90,7 +90,7 @@ Create an asynchronous `Ask For Approval` step within the conditional `If` sub-b
 ### Step 7: IT Fulfillment Work Order Generation
 Construct the final action step outside the conditional sub-branch to automatically create a fulfillment ticket (`sc_task`) for the desktop support engineering queue.
 
-![07 Create Catalog Task](images/07_Create_Catalog_Task.png)
+<img width="1920" height="944" alt="07_Create_Catalog_Task" src="https://github.com/user-attachments/assets/d59099c4-3dfb-43d1-b24c-f40b16d8299f" />
 *Figure 7: Generating the final Catalog Task assignment work order, passing structural item contexts directly to backend engineers.*
 
 * **Action Name:** Create Catalog Task
